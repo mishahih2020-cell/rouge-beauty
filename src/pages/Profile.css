@@ -1,0 +1,11 @@
+.profile-page { padding: var(--space-md) var(--space-md) 100px; max-width: 480px; margin: 0 auto; }
+.profile-title { font-size: 26px; margin-bottom: var(--space-md); }
+.profile-card { padding: var(--space-md); }
+.profile-field { margin-bottom: var(--space-md); }
+.profile-label { display: block; font-size: 12px; color: var(--color-grey-text); margin-bottom: 6px; }
+.profile-input { width: 100%; padding: 12px 14px; border-radius: var(--radius-sm); border: 1.5px solid var(--color-grey-light); background: var(--color-grey-light); font-size: 15px; font-family: var(--font-body); }
+.profile-input:focus { outline: none; border-color: var(--color-red); background: var(--color-white); }
+.profile-saved-note { font-size: 12px; color: var(--color-red-dark); margin-top: 8px; }
+.profile-history-title { font-size: 15px; font-weight: 600; margin: var(--space-lg) 0 8px; }
+.profile-history-item { padding: 12px 14px; display: flex; justify-content: space-between; font-size: 13px; }
+.profile-history-empty { font-size: 13px; color: var(--color-grey-text); }

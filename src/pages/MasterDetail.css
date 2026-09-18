@@ -1,0 +1,12 @@
+.master-detail-page { padding: var(--space-md) var(--space-md) 100px; max-width: 480px; margin: 0 auto; }
+.master-detail-photo { width: 100%; aspect-ratio: 1 / 1; max-height: 320px; border-radius: var(--radius-lg); background: var(--color-grey-light); background-size: cover; background-position: center; margin-bottom: var(--space-md); }
+.master-detail-name { font-size: 26px; }
+.master-detail-spec { font-size: 14px; color: var(--color-red); font-weight: 600; margin-top: 4px; }
+.master-detail-stats { display: flex; gap: var(--space-sm); margin-top: var(--space-md); }
+.master-stat-card { flex: 1; padding: 14px; text-align: center; }
+.master-stat-value { font-family: var(--font-display); font-size: 22px; }
+.master-stat-label { font-size: 11px; color: var(--color-grey-text); margin-top: 2px; }
+.master-detail-section-title { font-size: 15px; font-weight: 600; margin: var(--space-lg) 0 8px; }
+.master-detail-bio { font-size: 14px; color: var(--color-grey-text); line-height: 1.6; }
+.master-detail-cta { margin-top: var(--space-xl); }
+.master-not-found { padding: var(--space-xl) 0; text-align: center; color: var(--color-grey-text); }

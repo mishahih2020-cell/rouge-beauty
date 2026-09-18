@@ -1,0 +1,12 @@
+.home-page { padding: var(--space-md) var(--space-md) 100px; max-width: 480px; margin: 0 auto; }
+.home-header { margin-bottom: var(--space-md); }
+.home-greeting { font-size: 13px; color: var(--color-grey-text); }
+.home-title { font-size: 26px; margin-top: 2px; }
+.section { margin-top: var(--space-lg); }
+.section-heading { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: var(--space-sm); }
+.section-title { font-size: 18px; }
+.section-link { font-size: 13px; font-weight: 600; color: var(--color-red); }
+.services-list { display: flex; flex-direction: column; gap: var(--space-sm); }
+.cta-block { margin-top: var(--space-xl); }
+.home-loading { font-size: 13px; color: var(--color-grey-text); }
+.home-error { font-size: 13px; color: var(--color-red-dark); background: var(--color-red-soft); padding: 10px 14px; border-radius: var(--radius-sm); margin-bottom: var(--space-md); }

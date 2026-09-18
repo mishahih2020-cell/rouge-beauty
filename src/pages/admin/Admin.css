@@ -1,0 +1,21 @@
+.admin-page { padding: var(--space-md) var(--space-md) 100px; max-width: 560px; margin: 0 auto; }
+.admin-login-page { padding: var(--space-xl) var(--space-md); max-width: 400px; margin: 0 auto; }
+.admin-title { font-size: 24px; margin-bottom: var(--space-md); }
+.admin-tabs { display: flex; gap: 6px; margin-bottom: var(--space-lg); overflow-x: auto; }
+.admin-tab { flex: 0 0 auto; padding: 8px 14px; border-radius: var(--radius-pill); font-size: 13px; font-weight: 600; background: var(--color-grey-light); color: var(--color-grey-text); cursor: pointer; border: none; }
+.admin-tab.active { background: var(--color-red); color: var(--color-white); }
+.admin-card { padding: var(--space-md); margin-bottom: var(--space-sm); }
+.admin-card-title { font-size: 15px; font-weight: 600; margin-bottom: var(--space-sm); }
+.admin-field-row { display: flex; gap: 8px; margin-bottom: 8px; }
+.admin-field { flex: 1; min-width: 0; }
+.admin-label { display: block; font-size: 11px; color: var(--color-grey-text); margin-bottom: 4px; }
+.admin-input, .admin-select, .admin-textarea { width: 100%; padding: 10px 12px; border-radius: var(--radius-sm); border: 1.5px solid var(--color-grey-light); background: var(--color-grey-light); font-size: 14px; font-family: var(--font-body); }
+.admin-input:focus, .admin-select:focus, .admin-textarea:focus { outline: none; border-color: var(--color-red); background: var(--color-white); }
+.admin-textarea { resize: vertical; min-height: 60px; }
+.admin-checkbox-row { display: flex; align-items: center; gap: 8px; font-size: 13px; margin-bottom: 10px; }
+.admin-actions-row { display: flex; gap: 8px; margin-top: 8px; }
+.admin-section-title { font-size: 15px; font-weight: 600; margin: var(--space-lg) 0 8px; }
+.admin-schedule-row { display: flex; align-items: center; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--color-grey-light); }
+.admin-schedule-day { width: 36px; font-size: 13px; font-weight: 600; text-transform: uppercase; color: var(--color-grey-text); }
+.admin-bookings-item { padding: 12px 14px; display: flex; justify-content: space-between; font-size: 13px; align-items: center; }
+.admin-empty { font-size: 13px; color: var(--color-grey-text); padding: 8px 0; }
