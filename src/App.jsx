@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import Promotions from './pages/Promotions';
 import Services from './pages/Services';
@@ -25,6 +25,7 @@ function AppShell() {
         <Route path="/my-bookings" element={<MyBookings />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="*" element={<Home />} />
       </Routes>
       {!isAdmin && <BottomNav />}
     </>
@@ -33,8 +34,8 @@ function AppShell() {
 
 export default function App() {
   return (
-    <HashRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <AppShell />
-    </HashRouter>
+    </BrowserRouter>
   );
 }
