@@ -7,13 +7,20 @@ export function getTelegramUser() {
   return { id: 'demo-user', name: 'Гостья' };
 }
 
+// Методы вроде requestFullscreen/disableVerticalSwipes появились в новых версиях
+// Bot API и синхронно бросают WebAppMethodUnsupported на старых клиентах —
+// без try/catch это останавливает main.jsx ещё до React-рендера (пустой экран).
+function safeCall(tg, method) {
+  try { tg[method]?.(); } catch { /* метод не поддерживается этой версией клиента */ }
+}
+
 export function initTelegram() {
   const tg = typeof window !== 'undefined' ? window.Telegram?.WebApp : null;
   if (!tg) return;
-  tg.ready();
-  tg.expand();
-  // Без requestFullscreen приложение открывается свёрнутым в шторку —
-  // пользователю приходится вручную дотягивать её вверх, чтобы увидеть контент.
-  tg.requestFullscreen?.();
-  tg.disableVerticalSwipes?.();
+  safeCall(tg, 'ready');
+  safeCall(tg, 'expand');
+  // Разворачивает приложение на весь экран сразу, без ручного свайпа шторки —
+  // но поддерживается не всеми клиентами, отсюда safeCall.
+  safeCall(tg, 'requestFullscreen');
+  safeCall(tg, 'disableVerticalSwipes');
 }

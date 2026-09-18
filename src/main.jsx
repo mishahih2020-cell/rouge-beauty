@@ -9,7 +9,7 @@ import './styles/theme.css';
 import App from './App';
 import { initTelegram } from './telegram';
 
-initTelegram();
+try { initTelegram(); } catch { /* приложение должно отрендериться, даже если Telegram SDK недоступен */ }
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
