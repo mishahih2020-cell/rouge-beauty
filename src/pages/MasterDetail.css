@@ -1,5 +1,6 @@
 .master-detail-page { padding: var(--space-md) var(--space-md) 100px; max-width: 480px; margin: 0 auto; }
-.master-detail-photo { width: 100%; aspect-ratio: 1 / 1; max-height: 320px; border-radius: var(--radius-lg); background: var(--color-grey-light); background-size: cover; background-position: center; margin-bottom: var(--space-md); }
+.master-detail-photo { width: 100%; aspect-ratio: 1 / 1; max-height: 320px; border-radius: var(--radius-lg); background: var(--color-grey-light); background-size: cover; background-position: center; margin-bottom: var(--space-md); display: flex; align-items: center; justify-content: center; }
+.master-detail-photo-emoji { font-size: 72px; line-height: 1; }
 .master-detail-name { font-size: 26px; }
 .master-detail-spec { font-size: 14px; color: var(--color-red); font-weight: 600; margin-top: 4px; }
 .master-detail-stats { display: flex; gap: var(--space-sm); margin-top: var(--space-md); }

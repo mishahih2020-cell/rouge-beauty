@@ -2,7 +2,8 @@
 .masters-page-title { font-size: 26px; margin-bottom: var(--space-md); }
 .masters-page-list { display: flex; flex-direction: column; gap: var(--space-sm); }
 .master-full { padding: var(--space-md); display: flex; gap: var(--space-md); }
-.master-photo { width: 72px; height: 72px; border-radius: 50%; background: var(--color-grey-light); background-size: cover; background-position: center; flex-shrink: 0; }
+.master-photo { width: 72px; height: 72px; border-radius: 50%; background: var(--color-grey-light); background-size: cover; background-position: center; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+.master-photo-emoji { font-size: 30px; line-height: 1; }
 .master-info { flex: 1; min-width: 0; }
 .master-name { font-size: 17px; }
 .master-spec { font-size: 13px; color: var(--color-red); font-weight: 600; margin-top: 2px; }

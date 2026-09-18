@@ -4,6 +4,7 @@ import { ChevronLeft, Star, Briefcase } from 'lucide-react';
 import Card from '../components/Card';
 import Button from '../components/Button';
 import { getMasters } from '../api';
+import { masterEmoji } from '../emoji';
 import './MasterDetail.css';
 
 export default function MasterDetail() {
@@ -32,7 +33,9 @@ export default function MasterDetail() {
   return (
     <div className="master-detail-page">
       <button className="booking-back" onClick={() => navigate('/masters')}><ChevronLeft size={14} style={{ verticalAlign: -2 }} /> Назад</button>
-      <div className="master-detail-photo" style={master.photoUrl ? { backgroundImage: `url(${master.photoUrl})` } : undefined} />
+      <div className="master-detail-photo" style={master.photoUrl ? { backgroundImage: `url(${master.photoUrl})` } : undefined}>
+        {!master.photoUrl && <span className="master-detail-photo-emoji">{masterEmoji(master.specialization)}</span>}
+      </div>
       <h1 className="master-detail-name">{master.name}</h1>
       <div className="master-detail-spec">{master.specialization}</div>
       <div className="master-detail-stats">

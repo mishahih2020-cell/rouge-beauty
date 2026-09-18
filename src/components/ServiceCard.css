@@ -1,5 +1,6 @@
 .service-card { display: flex; align-items: center; gap: var(--space-md); padding: var(--space-sm) var(--space-md); }
-.service-photo { width: 64px; height: 64px; border-radius: var(--radius-sm); background: var(--color-grey-light); background-size: cover; background-position: center; flex-shrink: 0; }
+.service-photo { width: 64px; height: 64px; border-radius: var(--radius-sm); background: var(--color-grey-light); background-size: cover; background-position: center; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+.service-photo-emoji { font-size: 28px; line-height: 1; }
 .service-info { flex: 1; min-width: 0; }
 .service-name { font-family: var(--font-display); font-size: 16px; }
 .service-meta { font-size: 13px; color: var(--color-grey-text); margin-top: 3px; }
