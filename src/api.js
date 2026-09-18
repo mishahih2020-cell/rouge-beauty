@@ -1,4 +1,7 @@
-const BASE_URL = 'https://dnaoedi5ks.app.n8n.cloud/webhook';
+// В проде бэкенд отдаёт и фронтенд с одного origin — VITE_API_URL не нужен.
+// В деве по умолчанию бьём в локальный сервер (см. server/).
+const API_ROOT = import.meta.env.VITE_API_URL ?? (import.meta.env.DEV ? 'http://localhost:8787' : '');
+const BASE_URL = `${API_ROOT}/api`;
 
 async function get(path) {
   const res = await fetch(`${BASE_URL}/${path}`);
