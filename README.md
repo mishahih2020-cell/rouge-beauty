@@ -1,51 +1,48 @@
 # ROUGE Beauty — Telegram Mini App для салона красоты
 
-Фронтенд: React + Vite. Бэкенд: свой Node.js/Express-сервер (папка `server/`), хранит данные в JSON-файле — без внешних сервисов вроде n8n или Netlify.
+Полностью статичное React + Vite приложение, без своего сервера. Хостится на **GitHub Pages** прямо из этого репозитория.
+
+## Как это хранит данные
+
+Своего бэкенда нет — все данные (услуги, мастера, акции, записи, профиль) живут в `localStorage` того браузера/Telegram-клиента, в котором открыто приложение (`src/api.js`). Это значит:
+
+- Данные не расшарены между устройствами и пользователями — у каждого клиента своя локальная копия.
+- Изменения в админ-панели (`/admin`) видны только на том устройстве, где их внесли — они не появятся у клиентов автоматически.
+- Если очистить данные сайта в браузере/Telegram — приложение пересоздаст демо-данные заново.
+
+Такой вариант годится для витрины/прототипа. Если нужны реальные общие записи и админка, придётся вернуть настоящий бэкенд (это ограничение GitHub Pages как чисто статического хостинга, не самого приложения).
 
 ## Разработка
 
-Нужны два процесса: бэкенд и фронтенд.
-
 ```bash
-# 1. Бэкенд
-cd server
 npm install
-cp .env.example .env   # при необходимости поменяйте ADMIN_TELEGRAM_ID
-npm run dev            # слушает на http://localhost:8787
-
-# 2. Фронтенд (в другом терминале, из корня репозитория)
-npm install
-npm run dev             # http://localhost:5173, ходит на бэкенд по localhost:8787
+npm run dev
 ```
 
-## Продакшн (свой сервер, без Netlify)
+## Сборка и деплой на GitHub Pages
 
-Один Node-процесс отдаёт и API, и собранный фронтенд:
+Деплой автоматический: пуш в `master` запускает `.github/workflows/deploy.yml`, который собирает `dist/` и публикует его на GitHub Pages.
 
-```bash
-# из корня репозитория
-npm install
-npm run build            # соберёт фронтенд в dist/
+Единоразовая настройка в репозитории (Settings → Pages → Source: **GitHub Actions**) — после этого приложение будет доступно по адресу:
 
-cd server
-npm install
-cp .env.example .env     # укажите ADMIN_TELEGRAM_ID
-npm start                # слушает на PORT (по умолчанию 8787), отдаёт dist/ и /api/*
+```
+https://<username>.github.io/rouge-beauty/
 ```
 
-Дальше — reverse proxy (nginx/caddy) с HTTPS на этот порт, и полученный домен указывается как Web App URL в BotFather. Процесс держите живым через `pm2`/`systemd`/Docker — как удобнее на вашем сервере.
+Этот URL и указывается как Web App URL в BotFather (`/newapp` или `/setmenubutton`).
+
+Ручная сборка (для проверки локально):
+
+```bash
+npm run build
+npm run preview
+```
 
 ## Структура
 
 - `src/pages` — экраны приложения (Главная, Услуги, Мастера, Запись, Мои записи, Профиль, Акции)
-- `src/pages/admin` — админ-панель владельца (`/admin`, доступ по Telegram ID)
+- `src/pages/admin` — админ-панель владельца (`/admin`, доступ по Telegram ID, см. `ADMIN_TELEGRAM_ID` в `src/api.js` и `OWNER_TELEGRAM_ID` в `src/pages/Profile.jsx`)
 - `src/components` — переиспользуемые UI-компоненты
-- `src/api.js` — все запросы к своему backend (`server/`)
+- `src/api.js` — вся "бизнес-логика" и хранение данных в localStorage (вместо backend)
 - `src/telegram.js` — интеграция с Telegram WebApp SDK
-- `server/` — Express API + раздача собранного фронтенда, данные в `server/data/db.json`
-
-## Backend
-
-Свой сервер на Express (`server/src`), роуты под `/api/salon/*` — тот же контракт, что раньше был в n8n (услуги, мастера, акции, доступность слотов, записи, профиль, админ-CRUD). Хранилище — JSON-файл `server/data/db.json` (создаётся и сидируется данными при первом запуске, в git не попадает).
-
-Доступ в `/admin` даётся по Telegram ID, заданному в `server/.env` (`ADMIN_TELEGRAM_ID`, по умолчанию `8419316772` — тот же ID, что зашит во фронтенде в `src/pages/Profile.jsx`).
+- `.github/workflows/deploy.yml` — автодеплой на GitHub Pages

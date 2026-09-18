@@ -2,9 +2,3 @@ node_modules
 dist
 .DS_Store
 *.local
-
-# Бэкенд
-server/data/*.json
-.env
-.env.*
-!.env.example
